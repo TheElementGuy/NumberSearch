@@ -63,7 +63,7 @@ long long sociabletf(long long depth, long long num) {
 
 string sociable(long long depth, long long num) {
     long long sNumber = sociabletf(depth + 32, num);
-    if (sNumber >= 1 && sNumber <= 28) {
+    if (sNumber > 2 && sNumber < 28) {
         return to_string(num) + " is sociable with depth " + to_string(sNumber) + "." + "\n";
     } else if (sNumber > 28) {
         return to_string(num) + " IS SOCIABLE WITH DEPTH " + to_string(sNumber) + "!!!!!!" + "\n";
@@ -125,7 +125,9 @@ int main() {
     // --- macOS/Linux: tail -f ---
     pid_t pid = fork();
     if (pid == 0) {
-        execlp("tail", "tail", "-f", "nums.txt", (char*)NULL);
+        execlp("osascript", "osascript", "-e",
+               "tell app \"Terminal\" to do script \"tail -f /Users/juderasmussen/Downloads/nums.txt\"",
+               (char*)NULL);
         perror("execlp failed");
         return 1;
     }

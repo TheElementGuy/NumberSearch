@@ -83,7 +83,7 @@ void check(long long start, long long end, int depth, ofstream numsFile) {
 }
 
 int main() {
-    ofstream numsFile("nums.txt");
+    ofstream numsFile("~/Downloads/nums.txt");
     long long priority = 1;
     long long divsum = 0;
 
@@ -136,7 +136,7 @@ int main() {
 
     check(2, range, 29, std::move(numsFile));
 
-    ifstream iNumsFile("nums.txt");
+    ifstream iNumsFile("~/Downloads/nums.txt");
 
     kill(pid, SIGTERM);
     sleep(2);
